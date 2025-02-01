@@ -35,18 +35,10 @@ Below is an example of how to build using **CMake**. If you are new to CMake, in
 
 1. **Clone or download** this repository:
   
-  bash
-  
-  CopyEdit
-  
   `git clone https://github.com/example/stop_sign_detection.git
   cd stop_sign_detection`
   
 2. **Configure** the project with CMake:
-  
-  bash
-  
-  CopyEdit
   
   `mkdir build
   cd build
@@ -55,10 +47,6 @@ Below is an example of how to build using **CMake**. If you are new to CMake, in
   Make sure that CMake finds your OpenCV installation. You may need to set `OpenCV_DIR` if it is installed in a non-standard location.
   
 3. **Build** the project:
-  
-  bash
-  
-  CopyEdit
   
   `cmake --build .`
   
@@ -73,17 +61,9 @@ Below is an example of how to build using **CMake**. If you are new to CMake, in
   
 2. **Run the built executable**:
   
-  bash
-  
-  CopyEdit
-  
   `./stop_sign_detection`
   
   or on Windows:
-  
-  bash
-  
-  CopyEdit
   
   `stop_sign_detection.exe`
   
@@ -100,15 +80,13 @@ Below is an example of how to build using **CMake**. If you are new to CMake, in
 
 ## File Structure
 
-bash
-
-CopyEdit
-
-`stop_sign_detection/
- ├── CMakeLists.txt
- ├── stop_sign_detection.cpp # Main source code with detection and routing logic
- ├── stop_sign_sample.jpg # Example image (add your own if needed)
- └── README.md # This file`
+```
+stop_sign_detection/
+  ├── CMakeLists.txt
+  ├── stop_sign_detection.cpp      # Main source code with detection and routing logic
+  ├── stop_sign_sample.jpg         # Example image (add your own if needed)
+  └── README.md                    # This file
+```
 
 ---
 
@@ -117,10 +95,6 @@ CopyEdit
 - **Color Thresholding**:  
   The code uses two HSV ranges to detect red:
   
-  cpp
-  
-  CopyEdit
-  
   `cv::inRange(hsv, cv::Scalar(0, 70, 50), cv::Scalar(10, 255, 255), mask1);
   cv::inRange(hsv, cv::Scalar(170, 70, 50), cv::Scalar(180, 255, 255), mask2);`
   
@@ -128,10 +102,6 @@ CopyEdit
   
 - **Contour Size**:  
   The code discards very small contours. Update this line in `detectStopSigns` as needed:
-  
-  cpp
-  
-  CopyEdit
   
   `if (approx.size() == 8 && cv::contourArea(approx) > 1000) { ... }`
   
